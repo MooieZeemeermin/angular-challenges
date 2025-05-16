@@ -12,12 +12,11 @@ export interface TypeTemplateContext<T> {
 })
 export class TypeDirective<T> {
   @Input('appList') data!: T[];
-  //   @Input({ required: true }) lijstTemplate!: T[];
 
-  static ngTemplateContextGuard<T2>(
-    dir: TypeDirective<T2>,
+  static ngTemplateContextGuard<T>(
+    dir: TypeDirective<T>,
     ctx: unknown,
-  ): ctx is TypeTemplateContext<T2> {
+  ): ctx is TypeTemplateContext<T> {
     return true;
   }
 }

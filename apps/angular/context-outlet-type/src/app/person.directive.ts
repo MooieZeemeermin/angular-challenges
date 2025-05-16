@@ -2,7 +2,6 @@ import { Directive } from '@angular/core';
 
 export interface SelectTemplateContext {
   age: number;
-  name: string;
   $implicit: string;
 }
 
@@ -10,8 +9,9 @@ export interface SelectTemplateContext {
 export class PersonDirective {
   static ngTemplateContextGuard(
     dir: PersonDirective,
-    ctx: any,
+    ctx: unknown,
   ): ctx is SelectTemplateContext {
+    // The guard body is not used at runtime, and included only to avoid TypeScript errors.
     return true;
   }
 }
